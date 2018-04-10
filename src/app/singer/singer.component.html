@@ -1,0 +1,13 @@
+<div style="text-align:center">
+    <h1>
+        Welcome to {{ title }}!
+    </h1>
+    <input type="text" [value]="search" 
+        (keyup)="songTerm$.next($event.target.value)" 
+        placeholder="Search for your song" />
+
+    <ul>
+        <li *ngFor="let song of songs">{{song.name}} / {{song.title}}</li>
+    </ul>
+    <router-outlet></router-outlet>
+</div>
