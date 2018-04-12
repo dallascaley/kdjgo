@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { AlertModule } from 'ngx-bootstrap';  //This is an example from ngx bootstrap doc, probably not actually needed (yet)
 
 //Components
 import { AppComponent } from './app.component';
@@ -22,6 +23,7 @@ import { SingerComponent } from './singer/singer.component';
 		BrowserModule,
 		HttpClientModule,
         AppRoutingModule,
+        AlertModule.forRoot(), //ditto bootstrap example
 	],
 		providers: [
 		SongService,
