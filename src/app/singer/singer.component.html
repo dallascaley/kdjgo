@@ -6,7 +6,9 @@
         (keyup)="songTerm$.next($event.target.value)" 
         placeholder="Search for your song" />
 
-    <ul>
-        <li *ngFor="let song of songs">{{song.name}} / {{song.title}}</li>
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let song of songs">
+            <button type="button" class="btn btn-dark">{{song.name}} / {{song.title}}</button>
+        </li>
     </ul>
 </div>
