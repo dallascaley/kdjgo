@@ -1,14 +1,35 @@
-<div style="text-align:center">
-    <h1>
-        Welcome to {{ title }}!
-    </h1>
-    <input type="text" [value]="search" 
-        (keyup)="songTerm$.next($event.target.value)" 
-        placeholder="Search for your song" />
+<div class="main">
+    <div class="center">
+        <h1>
+            Welcome to {{ title }}!
+        </h1>
+        <div class="form-group col-md-12">
+        <input type="text" class="form-control" [value]="search" 
+            (keyup)="songTerm$.next($event.target.value)" 
+            placeholder="Search for your song" />
+        </div>
 
-    <ul class="list-group">
-        <li class="list-group-item" *ngFor="let song of songs">
-            <button type="button" class="btn btn-dark">{{song.name}} / {{song.title}}</button>
-        </li>
-    </ul>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let song of songs">
+                <button type="button" class="btn btn-dark" (click)="openModal(template, song)">{{song.name}} / {{song.title}}</button>
+            </li>
+        </ul>
+
+        <ng-template #template>
+            <div class="modal-header">
+                <h4 class="modal-title pull-left">
+                    Selected Song: {{selectedSong.title}}
+                    <div>by {{selectedSong.name}}</div>
+                </h4>
+                <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group col-md-12">
+                    <input id="singer" class="form-control" placeholder="Enter Your Name"/>
+                </div>
+            </div>
+        </ng-template>
+    </div>
 </div>
