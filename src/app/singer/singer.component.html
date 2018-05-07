@@ -11,7 +11,9 @@
 
         <ul class="list-group">
             <li class="list-group-item" *ngFor="let song of songs">
-                <button type="button" class="btn btn-dark" (click)="openModal(template, song)">{{song.name}} / {{song.title}}</button>
+                <button type="button" class="btn btn-dark" (click)="openModal(template, song)">
+                    <span class="song">{{song.name}} / {{song.title}}</span>
+                </button>
             </li>
         </ul>
 
@@ -28,6 +30,11 @@
             <div class="modal-body">
                 <div class="form-group col-md-12">
                     <input id="singer" class="form-control" placeholder="Enter Your Name"/>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <button class="form-control btn-dark" type="submit" (click)="singIt()">Sing it!</button>
+                    </div>
                 </div>
             </div>
         </ng-template>

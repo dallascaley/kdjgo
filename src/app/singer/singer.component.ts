@@ -40,4 +40,8 @@ export class SingerComponent implements OnInit {
     selectSong(song) {
         this.selectedSong = song;
     }
+
+    singIt() {
+        this.modalRef.hide();
+    }
 }

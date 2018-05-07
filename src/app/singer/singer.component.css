@@ -4,10 +4,16 @@
 }
 
 .main .center {
-    width: 50%;
-    max-width: 400px;
+    width: 400px;
     margin: 0 auto;
 }
+
+.song {
+	max-width: 370px;
+	white-space: normal;
+}
+
+
 
 ul {
     list-style-type: none;
