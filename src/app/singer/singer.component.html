@@ -1,12 +1,29 @@
 <div class="main">
-    <div class="center">
+    <div class="center container-fluid">
         <h1>
             Welcome to {{ title }}!
         </h1>
-        <div class="form-group col-md-12">
-        <input type="text" class="form-control" [value]="search" 
-            (keyup)="songTerm$.next($event.target.value)" 
-            placeholder="Search for your song" />
+
+        <div class="row pad-bottom-1">
+            <div class="btn-group col-md-6 col-sm-6 col-xs-6" dropdown>
+                <button id="button-basic" dropdownToggle type="button" class="btn btn-dark dropdown-toggle" aria-controls="dropdown-basic">
+                    Select Location <span class="caret"></span>
+                </button>
+                <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+                    <li *ngFor="let location of locations" role="menuitem"><a class="dropdown-item" (click)="setLocation(location)">{{location.name}}</a></li>
+                </ul>
+            </div>
+            <div class="selected-location">
+                {{selectedLocation}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-12">
+                <input type="text" class="form-control" [value]="search" 
+                    (keyup)="songTerm$.next($event.target.value)" 
+                    placeholder="Search for your song" />
+            </div>
         </div>
 
         <ul class="list-group">

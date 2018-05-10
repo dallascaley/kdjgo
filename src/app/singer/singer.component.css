@@ -8,6 +8,16 @@
     margin: 0 auto;
 }
 
+.pad-bottom-1 {
+    padding-bottom: 15px;
+}
+
+.selected-location {
+    float:right;
+    margin-top: 7px;
+    color: white;
+}
+
 .song {
 	max-width: 370px;
 	white-space: normal;
@@ -17,4 +27,12 @@
 
 ul {
     list-style-type: none;
+}
+
+@media (min-width: 250px) {
+    .col-sm-6 {
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
 }
