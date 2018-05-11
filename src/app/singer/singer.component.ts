@@ -20,6 +20,7 @@ export class SingerComponent implements OnInit {
     locations: any = [];
     selectedSong: any = false;
     selectedLocation: any = '';
+    locationSelected: any = false;
 
     modalRef: BsModalRef;
 
@@ -47,14 +48,19 @@ export class SingerComponent implements OnInit {
     }
 
     setLocation(location) {
-        this.selectedLocation = location.name;
+        this.selectedLocation = location;
+        this.locationSelected = true;
     }
 
     selectSong(song) {
         this.selectedSong = song;
     }
 
-    singIt() {
+    singIt(name) {
+        console.log(name +' wants to sing song #'+this.selectedSong.id+' at location #'+this.selectedLocation.id);
+        this.songService.singSong(name, this.selectedSong.id, this.selectedLocation.id).subscribe(response => {
+            console.log('resp: ', response);
+        });
         this.modalRef.hide();
     }
 

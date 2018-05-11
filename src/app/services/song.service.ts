@@ -27,4 +27,13 @@ export class SongService {
 		return this.http.get('http://kdjgo.com/api/search.php?term=' + term);
 	}
 
+    singSong(name, song, location): Observable<any> {
+        let payload = {
+            name: name,
+            song: song,
+            location: location
+        };
+        return this.http.post('http://kdjgo.com/api/sing_song.php', payload);
+    }
+
 }

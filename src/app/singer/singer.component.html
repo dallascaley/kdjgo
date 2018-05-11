@@ -14,15 +14,15 @@
                 </ul>
             </div>
             <div class="selected-location">
-                {{selectedLocation}}
+                {{selectedLocation.name}}
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" [ngClass]="{'hidden': !locationSelected }">
             <div class="form-group col-md-12">
                 <input type="text" class="form-control" [value]="search" 
                     (keyup)="songTerm$.next($event.target.value)" 
-                    placeholder="Search for your song" />
+                    placeholder="Search for your song"/>
             </div>
         </div>
 
@@ -46,11 +46,11 @@
             </div>
             <div class="modal-body">
                 <div class="form-group col-md-12">
-                    <input id="singer" class="form-control" placeholder="Enter Your Name"/>
+                    <input id="singer" #singer class="form-control" placeholder="Enter Your Name"/>
                 </div>
                 <div class="row">
                     <div class="form-group col-md-12">
-                        <button class="form-control btn-dark" type="submit" (click)="singIt()">Sing it!</button>
+                        <button class="form-control btn-dark" type="submit" (click)="singIt(singer.value)">Sing it!</button>
                     </div>
                 </div>
             </div>
