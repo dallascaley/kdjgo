@@ -1,5 +1,5 @@
 <?php
-
+include('cors.php');
 include ('db_connect.php');
 
 $result = $conn->query("SELECT * FROM locations");

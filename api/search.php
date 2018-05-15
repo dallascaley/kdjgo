@@ -1,5 +1,5 @@
 <?php
-
+include('cors.php');
 include ('db_connect.php');
 
 $term = htmlspecialchars_decode($_GET['term']);
